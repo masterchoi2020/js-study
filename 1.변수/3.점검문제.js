@@ -24,6 +24,8 @@ console.log(admin);
 */
 var ourlivingPlanetName;
 
+var olpn;   //(x)
+
 var currentUserName;
 var loginUserName;
 
