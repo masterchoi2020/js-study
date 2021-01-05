@@ -3,8 +3,6 @@ var apple = "애플";
 console.log(apple);
 
 
-
-
 var banana = "바나나";
 // alt + shift : 빠른 복사
 console.log(banana);
