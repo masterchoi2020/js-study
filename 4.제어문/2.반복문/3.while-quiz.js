@@ -41,14 +41,14 @@ ex)  정수 3 , 7  또는 7, 3을 입력했을 시 3 + 4 + 5 + 6 + 7 의
      출력메시지는 " 3에서 7까지의 총합은 25입니다."
 */
 
-sum = 0;
+var sum = 0;
 var num1 = +prompt('시작값으로 쓸 정수를 입력하세요.');
 var num2 = +prompt(`끝값으로 쓸 정수를 입력하세요.`);
 
 if (num1 >= num2) {
     var temp = num1;
     num1 = num2;
-    num2 = num1;
+    num2 = temp;
 }
 
 var n = num1;
