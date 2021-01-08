@@ -24,7 +24,6 @@ alert(`총 합은 ${sum}입니다.`);
 */
 
 
-
 /*
 - Quiz2. 아래 요구사항에 맞는 코드를 작성하고 
         브라우저에서 실행하여 테스트하세요.
@@ -48,7 +47,7 @@ var num2 = +prompt(`끝값으로 쓸 정수를 입력하세요.`);
 if (num1 >= num2) {
     var temp = num1;
     num1 = num2;
-    num2 = num1;
+    num2 = temp;
 }
 
 var n = num1;

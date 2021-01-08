@@ -9,7 +9,7 @@ var food;
 if (money >= 5000) {
     food = '김치찌개';
 }else {
-    food = '라면'
+    food = '라면';
 }
 console.log(food);
 */
@@ -19,9 +19,9 @@ var food;
 if (money >=5000) {
     food = '김치찌개';
 }else if(money >= 3000) {
-    food = '라면'
+    food = '라면';
 }else {
-    food = '굶어'
+    food = '굶어';
 }
 console.log(food);
 */
