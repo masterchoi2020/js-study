@@ -28,7 +28,7 @@ var randomInt = Math.floor(Math.random() * 10);
 console.log(`랜덤 정수: ${randomInt}`);
 
 /* x 이상 y미만의 랜덤 정수 생성 공식 
-Math.floor(Math.random()* (y-x)) + x;
+Math.floor(Math.random() * (y-x)) + x;
 */
 
 // 11 ~ 38미만의 랜덤값 생성
@@ -37,4 +37,4 @@ console.log(`랜덤 정수: ${randomInt}`);
 
 // 1 ~ 45 사이 랜덤값 ( -> 1 ~ 46미만의 값 생성)
 var lottoNum = Math.floor(Math.random() * 45) + 1;
-console.log(`랜덤 로또번호: ${randomInt}`);
+console.log(`랜덤 로또번호: ${lottoNum}`);
