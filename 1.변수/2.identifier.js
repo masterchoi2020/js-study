@@ -19,7 +19,7 @@ var num79;      //(O)
 var num79ber;   //(0)
 console.log(num79);
 
-잘못된 변수명
+//잘못된 변수명
 // var var;     //(x)
 // var if;      //(x)
 // var my phone number  //(x)
