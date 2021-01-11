@@ -1,4 +1,4 @@
-// continue 의미는 이번에는 skip하고 다음 회차으로 넘어가라
+// continue 의미: 이번에는 skip하고 다음 회차으로 넘어가라
 
 /*
 for (var i = 1; i < 11; i++){
@@ -18,6 +18,6 @@ while(true){
     }else if (n === 1){
         continue;
     }
-    alert('메롱메롱')
+    alert('메롱메롱');
 }
 

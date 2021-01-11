@@ -14,14 +14,13 @@ while(true){
 */
 
 
-
 var total = 0;
 
 while(true){
-    var number = prompt('숫자를 입력하세요.')
+    var number = prompt('숫자를 입력하세요.');
     if (number === '그만'){
         break;
     }
     total += +number; // + 는 문자를 숫자로 변환시켜 줌 (sting -> number 로 변환)
 }
-alert(`입력한 숫자의 총합: ${total}`)
+alert(`입력한 숫자의 총합: ${total}`);

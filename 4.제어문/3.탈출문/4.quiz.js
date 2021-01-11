@@ -2,6 +2,7 @@
 - Quiz. 
 아래 요구사항에 맞는 코드를 작성하고 
 브라우저에서 실행하여 테스트하세요.
+
 - 요구사항
 1. 프로그램 실행 시 0~100사이의 무작위 두 수의 합을 
    물어보는 문제가 지속적으로 출제되게 하세요.
@@ -20,25 +21,96 @@
 */
 
 
-var okCount = 0;
-var falseCount = 0;
+/*
 
-while (true){
-    var rn1 = Math.floor(Math.random()*101);
-    var rn2 = Math.floor(Math.random()*101);
-    var result = rn1 + rn2;
-    
-    var userInput = +prompt(`${rn1} + ${rn2} = ??`);
+//정답 및 오답 횟수를 카운트할 변수
+var okCount=0;
+var noCount=0;
 
-    if (userInput === 0){
+//문제가 지속적 출제되도록 무한루프(while(true)) 사용
+while(true){
+
+    //  0~100사이의 무작위 두 수를 저장할 변수 
+    var rn1 = Math.floor(Math.random() * 101);
+    var rn2 = Math.floor(Math.random() * 101);
+
+    // 실제 정답이 저장될 변수
+    var rnresult = rn1 + rn2 ;
+
+    // 사용자가 입력한 값(답)을 저장할 변수
+    var UserInput = +prompt(`${rn1} + ${rn2} = ??`)
+
+    //사용자가 0을 입력하면 문제 출제를 중단
+    if(UserInput ===0) {
         break;
-    }else if (userInput === result ){
-        alert('정답 입니다.');
+
+    //올바른 답을 입력할 시 “정답입니다" 및 카운트 증가
+    }else if (UserInput === rnresult){
+        alert(`정답입니다.`);
         okCount++;
-    }else {
-        alert('오답 입니다.')
-        falseCount++;
+    }else{
+        alert('오답입니다.');
+        noCount++;
     }
 }
-alert(`누적 정답 횟수: ${okCount}, 오답 횟수: ${falseCount}`);
+alert(`누적된 정답 횟수:${okCount}, 오답 횟수:${noCount}`)
 
+*/
+
+
+
+//정답 및 오답 횟수를 카운트할 변수
+var okCount=0;
+var noCount=0;
+
+while (true) {
+   
+   //0~100사이의 무작위 두 수를 저장할 변수 
+   var rn1 = Math.floor(Math.random() * 101);
+   var rn2 = Math.floor(Math.random() * 101);
+
+   //랜덤 숫자 0,1 이 등장하도록 변수 선언.
+   //0: +, 1: - 
+   var operatorNumber = Math.floor(Math.random() * 2);
+
+   //랜덤 연산자 기호 만들기
+   var operatorMark = (operatorNumber === 0) ? '+' : '-';
+   /*
+  
+   var operatorMark;
+   if (operatorNumber === 0) {
+      operatorMark = '+';
+   } else {
+      operatorMark = '-';
+   }
+   */
+
+   // 실제 정답이 저장될 변수
+   var rnresult ;
+
+   if (operatorMark === '+') {
+      rnresult = rn1 + rn2 ;
+   } else {
+      rnresult = rn1 - rn2 ;
+   }
+
+   // 사용자가 입력한 답안
+   var UserInput = +prompt(`${rn1} ${operatorMark} ${rn2} = ??`);
+   // alert(typeof UserInput);
+   
+   if (UserInput === 0) {
+      break;
+   }
+   
+   //정답 오답 판별
+   if (UserInput === rnresult) {
+      alert('정답입니다!');
+      okCount++;
+   } else {
+      alert('오답입니다!');
+      noCount++;
+   }
+}//반복문 종료
+
+alert(`프로그램이 종료되었습니다.
+\n# 정답 횟수: ${okCount}회, 오답 횟수: ${noCount}회`);
