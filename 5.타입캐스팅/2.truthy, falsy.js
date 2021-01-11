@@ -1,5 +1,5 @@
 // 아래 false로 판단하는 5가지 경우를 제외하고는 모두 true로 판단.
-// false 판단 5가지: undefined, null, 0 , NaN, ""(빈문자열)
+// false 판단 5가지: undefined, null, 0, NaN, ""(빈문자열)
 
 if('') console.log('OK1');
 if('hello') console.log('OK2');

@@ -58,7 +58,7 @@ alert(`누적된 정답 횟수:${okCount}, 오답 횟수:${noCount}`)
 */
 
 
-
+//문제에 +, - 모두 출제 되도록 업데이트 하기
 //정답 및 오답 횟수를 카운트할 변수
 var okCount=0;
 var noCount=0;

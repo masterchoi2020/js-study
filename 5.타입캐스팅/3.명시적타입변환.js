@@ -21,12 +21,12 @@ console.log(`result: ${result}`);
 //명시적 논리 변환
 console.log("===========================");
 
-// var ex1 = !'hello';     // String을 boolean으로 변환해서 판단.
-var ex1 = !!'hello';        // !부정 논리 연산자를 두 번 사용
-var ex2 = Boolean(undefined);   //Boolean() 생성자 함수 사용
+var ex1 = !'hello';     // String을 boolean으로 변환해서 판단.
+var ex2 = !!'hello';        // !부정 논리 연산자를 두 번 사용
+var ex3 = Boolean(undefined);   //Boolean() 생성자 함수 사용
 
 console.log(ex1);
-console.log(!ex1);
 console.log(ex2);
+console.log(ex3);
 
 

@@ -11,7 +11,7 @@ fruits[1] = '수박'
 console.log(fruits);
 
 
-//배열의 요소 추가(length가 n이면, 요소는 0 ~ n-1 까지 존재)
+//배열에 요소 추가(length가 n이면, 요소는 0 ~ n-1 까지 존재)
 fruits[4] = '파인애플';
 console.log(fruits);
 console.log(`배열의 요소 수: ${fruits.length}개`);
