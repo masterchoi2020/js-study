@@ -1,3 +1,20 @@
+/*
+자료형(data type)
+-기본타입(Object):하나의 변수에 하나의 데이터를 담을 수 있다.
+숫자형
+문자형
+논리형
+undefined
+null
+
+-객체타입(Object):하나의 변수에 여러 데이터를 담을 수 있다.
+배열형
+객체형
+함수형
+심볼형
+*/
+
+
 // 배열의 생성
 var fruits = ['딸기', '포도', '복숭아', '사과'];
 
@@ -35,3 +52,7 @@ fruits[fruits.length] = '오렌지';
 for(var i=0; i < fruits.length; i++){
     console.log(`${i+1}번째 과일: ${fruits[i]}`);
 }
+
+// 빈배열 생성 (처음에 빈배열을 만든 후 data를 채워 넣을 때 사용)
+var empArr = []; 
+console.log(empArr);

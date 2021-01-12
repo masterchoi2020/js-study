@@ -17,9 +17,20 @@ var scores = [100, 80, 60, 50, 100, 80, 60, 50, 100];
 // 총점을 저장할 변수
 var sum = 0;
 
+
+/*방법1 : for문 사용해서 총점 계산
 for (i=0; i < scores.length; i++) {
     sum += scores[i];
 }
+*/
+
+/*방법2: for ~ of 를 사용해 총점 계산
+for(var score of scores){
+    sum += score;
+}
+*/
+
+
 // 평균을 저장할 변수
 var avg = sum/scores.length
 // console.log(`학생들 수학 총점: ${sum}점, 평균: ${avg}점`);
