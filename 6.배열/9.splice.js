@@ -6,10 +6,10 @@ var foods = ['떡볶이','오뎅','김말이','닭꼬치'];
 // foods.splice(1,1); //오뎅만 삭제
 // foods.splice(1,2); //오뎅, 김말이 삭제
 // foods.splice(2,1); //김말이 하나만 삭제
-
+// console.log(foods);
 
 //splice()는 삭제한 요소들을 다시 배열로 저장시킬 수 있습니다.
-//splice()이후 결과 값을 다시 배여로 가져오기
+//splice()이후 결과 값을 다시 배열로 가져오기
 //foods 배열에서 1번 index부터 2개 제거
 
 /*
@@ -37,7 +37,7 @@ console.log(foods);
 console.log("=================================");
 
 foods.push('보쌈','닭발');
-console.log((foods));
+console.log(foods);
 
 //사용자의 요청에 맞는 데이터 삭제
 var input = '피자';

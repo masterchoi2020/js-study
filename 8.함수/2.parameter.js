@@ -65,8 +65,9 @@ function multiply(num1, num2){
     if(typeof num1 !== 'number' || typeof num2 !== 'number'){
         console.log('인수를 숫자로 전달해 주세요.');
         return;
+    }else{
+        return num1 * num2;
     }
-    return num1 * num2;
 }
 
 // var result = multiply('4', '2');

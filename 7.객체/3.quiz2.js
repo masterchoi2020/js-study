@@ -37,7 +37,7 @@ while (true) {
               alert('로그인 성공');
               break;
           } else {
-              alert('비밀번호가 틀렸습니다.')
+              alert('비밀번호가 틀렸습니다.');
           }
 
       } else {

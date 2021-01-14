@@ -46,7 +46,7 @@ var subjectKorTotal = 0;
 for (var scoreArray of scores){
 
     //학생 한명의 점수 배열(scoreArray)에서 0번 인덱스만 추출해서 누적
-    subjectKorTotal += scoreArray[0]
+    subjectKorTotal += scoreArray[0];
 
     var eachTotal = 0;  //학생 한명의 총점
     for(var score of scoreArray){

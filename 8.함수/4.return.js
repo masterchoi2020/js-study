@@ -27,7 +27,7 @@ greeting('김개똥');
 greeting('박쥐똥');
 
 
-//void()함수 : 결과만 보여주고 말 행도, 리턴 값을 사용할 일이 없을 경우 사용
+//void()함수 : 결과만 보여주고 끝낼 것들, 리턴 값을 다시 사용할 일이 없을 경우 사용
 //return이 없는 void함수는 변수에 저장하지 마세요(undefined로 저장됨)
 function showMuliply(n1, n2){
     console.log(`${n1} x ${n2} = ${n1 * n2}`);
@@ -55,7 +55,7 @@ function inLoofing(){
 
 //함수가 리턴할 수 있는 데이터는 단 하나입니다.
 //2개의 정수를 전달 받아 덧셈,뺄셈, 곱셈, 나눗셈 결과를 모두 리턴하고 싶다면??
-//배열 또는 객체를 이용
+//배열 또는 객체를 이용해야 합니다.
 function operateAll(n1, n2){
     return {
         plus: n1 + n2,
