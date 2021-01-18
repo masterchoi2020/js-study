@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fruit apple">Apple</li>
+        <li class="fruit banana">Banana</li>
+        <li class="fruit grape">Grape</li>
+
+    </ul>
+
+    <script>
+        //class 가 fruit인것들 모두 유사배열에 담겨서 들어온다.
+        const $elements = document.getElementsByClassName('fruit');     
+        console.log($elements);
+
+        //class가 banana 인 것 한개만 유사 배열에 담겨 들어온다.
+        const $banana = document.getElementsByClassName('banana');
+        console.log($banana);
+
+        //유사배열에 담겨 들어왔으므로 배열 요소를 이용해 사용
+        // $banana.style.color = 'yellow';  (x) 
+
+        //유사배열에 담겨 왔으므로 배열요소를 이용해 사용해야한다 => 여러 요소를 활용할때 유용(단일 요소 이용시엔 불편함)
+        $banana[0].style.color = 'yellow';
+
+    </script>
+
+</body>
+</html>

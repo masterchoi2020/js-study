@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li id="apple">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+
+    </ul>
+
+    <ol>
+        <li>크림치즈</li>
+    </ol>
+
+    <script>
+        //유사 배열(0,1,2,length 를 이용해 배열처럼 사용, name,age 등을 추가해 객체로 사용가능)
+        //key가 인덱스처럼 구성되고, length프로퍼티가 있다.
+
+        const arr = {
+            0: 'a',
+            1: 'b',
+            2: 'c',
+            length: 3,
+
+            //객체처럼 쓰고 싶으면 아래 name, age 처럼 객체 요소를 만들어 주면 된다.
+            name: '메롱',
+            age: 50
+        }
+
+        //유사배열 접근시 배열처럼 인덱스로 요소에 접근
+        console.log(arr['1']);
+        console.log(arr['name']);
+        console.log(arr.length);
+
+        console.log('==============================');
+
+        //getElementsByTagName() : 태그 이름이 같은 것은 모두 긁어 온다.
+        // const $elements = document.getElementsByTagName('li');
+        // console.log($elements);
+        
+        const $fruits = document.getElementById('fruits');
+        const $elements = $fruits.getElementsByTagName('li');
+        console.log($elements);
+
+        $elements[1].style.color = 'yellow';
+
+        for(let i=0; i<$elements.length; i++){
+            $elements[i].style.fontSize = '30px';  //케밥케이스(font-size) 사용불가
+            $elements[i].style.fontWeight = 'bold';
+        }
+
+        for (let e of $elements){
+            e.style.fontStyle = 'italic';
+        }
+
+
+    </script>
+
+</body>
+</html>

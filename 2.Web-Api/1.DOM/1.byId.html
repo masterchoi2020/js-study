@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li id="apple">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <script>
+        //document는 내장 객체 변수로 저장되어 있다.
+        // console.log(document);      //document 전체 콘솔로 가져온다.
+        // console.log(document.head);     //document 중 head부분을콘솔로 가져온다.
+        // console.log(document.body);     //document 중 body부분을콘솔로 가져온다.
+        // console.log(document.body.ul);  //(x)  body 의 내부 요소들은 undefined로 가져 오지 못한다
+
+        //관례적으로 노드의 변수이름 앞에는 $를 붙여 변수를 만든다.
+        const $apple = document.getElementById('apple');  //li 요소 객체를 리턴해 준다.
+        console.log($apple);
+
+        //js로 DOM조작하기
+        $apple.style.fontSize = '40px';
+        document.body.style.background = 'tomato';
+
+        //없는 아이디를 사용하면?? null을 반환한다.
+        const $elem = document.getElementById('peach');
+        console.log($elem);
+
+        //요소에 id부여시 아이디 이름으로 전역변수가 자동으로 생성된다.
+        //const banana = document.getElementById('banana') 가 자동으로 생성되어 있다.
+        banana.style.color = 'yellow'
+
+        //그런데 동일 이름으로 사용자가 변수를 선언하면 자동 전역변수는 취소된다.
+        //즉, document.getElementById()를 자동으로 만들지 않는다.
+        const grape = "포도포도";
+        grape.style.color = 'violet';
+    </script>
+
+</body>
+</html>

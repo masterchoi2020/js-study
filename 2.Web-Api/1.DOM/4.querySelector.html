@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fruit apple">Apple</li>
+        <li class="fruit banana">Banana</li>
+        <li class="fruit grape">Grape</li>
+
+    </ul>
+
+    <script>
+        // js에서는 querySelector 가 가장 많이 쓰인다.
+        // querySelector는 제일 먼저 발견되는 것 하나만 가져온다.
+        // const $selem = document.querySelector('.banana');
+        // const $selem = document.querySelector('#fruits > li:nth-child(2)');
+        // const $selem = document.querySelector('li[class="fruit banana"]');
+        const $selem = document.querySelector('li.apple ~ li');
+        $selem.style.color = 'yellow';
+
+        //여러개를 가져와야 할 경우
+        const $elements = document.querySelectorAll('ul#fruits > li');
+        console.log($elements);
+
+        //선택자로 선택되지 않으면 null을 반환한다. All은 빈(empty) NodeList 반환
+        const $etc = document.querySelector('#peach');
+        console.log($etc);
+
+        //CSS 선택자 문법이 틀린 경우 에러 발생
+        const $error = document.querySelector('&apple');
+        console.log($error);
+    </script>
+
+</body>
+</html>
