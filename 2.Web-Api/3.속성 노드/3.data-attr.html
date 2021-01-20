@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul class="users">
+        <!-- data-이름  => js에서 미리 사용할 정보를 담아 두는 용도로 사용된다. -->
+
+        <li id="1" data-user-id="kim1234" data-role="common">Kim</li>
+        <li id="2" data-user-id="hong1234" data-role="admin">Hong</li>
+    </ul>
+
+    <script>
+        const $users = document.querySelector('.users');
+
+        //ES6문법: 배열 디스트럭처링(구조 분해 할당)
+        const [$user1, $user2] = [...$users.children];
+        // console.log($user1);
+
+        /* 아래 코드를 ES6 문법(배열 디스트럭처링)으로 간단히 변경 가능
+        const $userLi = $users.children;
+        const userArray = [...$userLi];
+        const $user1 = userArray[0];
+        const $user2 = userArray[1];
+        */
+
+
+        //user1의 id값 뽑아오기
+        console.log($user1.getAttribute('id'));
+        console.log($user1.getAttribute('data-user-id'));
+
+
+        //dataset 프로퍼티 활용
+        console.log($user1.dataset);  //data- 인 것들을 DOMStringsMap으로 모두 뽑아준다.
+        console.log(($user1.dataset.userId)); //js에서는 대시(-)사용 불가, HTML에 들어갈때는 user-id로 대시가 들어간다
+        console.log($user1.dataset.role);
+
+
+        //user2의 dataset에 user-name 추가(js에서 HTML에 data 넣기)
+        $user2.dataset.userName = '홍길동'; //js에서는 대시(-)사용 불가
+
+
+        //수정
+        $user2.dataset.role = 'anonymous';
+
+
+        //삭제
+        delete $user2.dataset.userId;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="name" value="Choi">
+
+    <script>
+        //어트리뷰트를 다루는 원론적인 방법(실무에서는 함수를 사용하여 속성값을 조작한다.)
+        //attributes 프로퍼티는 읽기전용이다.
+        const $input = document.querySelector('input');
+        console.log($input.attributes);  //input객체 attributes에 접근 -> NameNodeMap이라는 객체 존재
+        console.log($input.attributes.id); //유사배열 객체인 attributes에서 키가 id인 것 뽑아내기
+        console.log($input.attributes.id.value); //유사배열 객체인 attributes에서 키가 id인 것의 value값 뽑아내기
+        console.log($input.attributes.value.value); //유사배열 객체인 attributes에서 키가 type인 것의 value값 뽑아내기 =>Choi가 뽑힘
+
+        //type 텍스트 얻기
+        console.log($input.attributes.type.value); 
+
+        //value의 값인 Choi 변경
+        // $input.attributes.value.value = '홍길동';
+        // $input.attributes.type.value = 'checkbox';
+
+    </script>
+</body>
+
+</html>

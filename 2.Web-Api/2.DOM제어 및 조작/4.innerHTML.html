@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="greeting">Hellow <pan>World!</pan></div>
+
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+    </ul>
+
+    <script>
+        //아래 방법으로 노드 제어하지 마세요. 성능상 문제 있어요~~(참고로만 알아 두기)
+
+        const $greeting = document.getElementById('greeting');
+        console.log($greeting.textContent);  //내부의 순수 텍스트만 뽑아온다.
+        console.log($greeting.innerHTML);  //내부의 문자뿐만 아니라 태그 정보도 같이 뽑아온다.
+
+        $greeting.innerHTML = '<span>안녕</span>하세요!!';
+
+        //노드 추가
+        const $fruits = document.getElementById('fruits')
+        $fruits.innerHTML += '<li class="banana">Banana</li>';
+
+        //노드 교체(변경)
+        $fruits.innerHTML = '<li class="grape">Grape</li>'; 
+
+        //노드 삭제
+        $fruits.innerHTML = '';
+
+    </script>
+</body>
+</html>

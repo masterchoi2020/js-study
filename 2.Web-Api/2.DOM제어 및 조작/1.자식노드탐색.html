@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ul#fruits>li*3  -->
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+        <li class="banana">Banana</li>
+        <li class="grape">Grape</li>
+    </ul>
+
+    <ul id="test">
+
+    </ul>
+
+    <script>
+        //노드탐색의 기점이 되는 요소 취득
+        const $fruits = document.getElementById('fruits'); //아이디 #은 querySelector('#fruits')에서 사용
+
+        //fruits(기준 노드)를 기준으로 모든 자식 노드 탐색 (NodeList: 유사배열)
+        //chlidNodes는 텍스트 노드를 포함해서 모두 들고 온다.
+        const childNodes = $fruits.childNodes;
+        console.log(childNodes);   //NodeList에 text노드 발생(공백 때문에 발생한 Node임)
+
+        //fruits(기준 노드)를 기준으로 모든 자식 노드 탐색(텍스트 노드를 포함하지 않음)
+        //자식노드 탐색은 children을 사용해라~(텍스트 노드 제외하고 자식노드를 유사배열형태로들고 온다)
+        const children = $fruits.children;
+        console.log(children);
+
+        //fruits(기준 노드)를 기준으로 첫번째 자식 노드 탐색: firstElementChild 사용
+        console.log($fruits.firstChild); //firstChild는 텍스트 노드가 나올 수 있다. => 사용하지 마세요~
+        console.log($fruits.firstElementChild); //firstElementChild는 텍스트 포함 안함(사용권장)
+        
+        //fruits(기준 노드)를 기준으로 마지막 자식 노드 탐색: lastElementChild 사용
+        console.log($fruits.lastChild); //lastChild는 텍스트 노드가 나올 수 있다. => 사용하지 마세요~
+        console.log($fruits.lastElementChild); //lastElementChild는 텍스트 포함 안함(사용권장)
+
+        //fruits(기준 노드)의 자식 노드 존재 여부 확인(주의!: 텍스트 노드(공백포함)가 있으면 true가 나옴)
+        const $test = document.getElementById('test');
+        console.log($test.hasChildNodes());  //hasChildNodes()함수는 공백(텍스트)를 포함 => 사용하지 마세요~
+
+        //텍스트 노드를 제외환 자식노드의 존재 여부 확인시 children.length를 논리로 바꾸어 사용
+        console.log(!!$test.children.length);  //0에 !!를 사용하면 명시적으로 (false) 논리로 변환시킨다.
+
+    </script>
+
+    
+</body>
+
+</html>

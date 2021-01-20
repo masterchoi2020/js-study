@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <ul id="fruits">
+            <li class="apple">Apple</li>
+            <li class="banana">Banana</li>
+            <li class="grape">Grape</li>
+        </ul>
+    </div>
+
+
+
+    <table id="board">
+        <tr>
+            <td>A</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+    </table>
+    
+
+    <script>
+        //banana를 기준으로 부모 노드 잡아오기
+        //banana 요소노드 가져오기: querySelect('.banana');
+        const $banana = document.querySelector('.banana');
+        console.log($banana);
+
+        //부모노드 탐색 : parentElement 사용
+        const parent = $banana.parentElement;
+        // const parent = $banana.parentNode; parentElement와 동일
+        console.log(parent);
+
+        //부모의 부모(조상) 노드 탐색
+        const ancient = $banana.parentElement.parentElement;
+        console.log(ancient);
+
+        //다음 형제 노드 탐색 : netxElementSibling 사용
+        // const $next = $banana.nextSibling; //텍스트 노드를 포함 => 사용하지 마세요~
+        const $next = $banana.nextElementSibling;
+        console.log($next);
+
+        //이전 형제 노드 탐색: previousElementSibling 사용
+        const $prev = $banana.previousElementSibling;
+        console.log($prev);
+
+        const $prev2 = $next.previousElementSibling;
+        console.log($prev2);
+        console.log($prev2 === $banana);
+
+        
+
+        //테이블 요소노드 취득
+        const $board = document.getElementById('board');
+        console.log($board.children); //table의 자식: tbody(tr은 테이블의 자식이 아니라 손자였다)
+        //table 요소 자식으로 tbody가 자동으로 삽입된다.
+        
+        const $children = $board.children[0].children; 
+        console.log($children);
+
+
+    </script>
+
+</body>
+</html>

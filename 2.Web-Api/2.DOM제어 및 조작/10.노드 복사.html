@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        //li에서 apple의 원본 요소 취득
+        const $apple = $fruits.firstElementChild;
+
+        //얖은 복사(자기 자신의 노드만 복사): cloneNode(true) 
+        //apple의 사본 생성 
+        const $shallowClone = $apple.cloneNode();  //cloneNode(false)는 false가 기본값
+        // console.log($shallowClone); //텍스트 노드를 제외한 li태그만 복사(콘솔에서 확인)
+        $shallowClone.textContent = 'banana';  //그러므로 텍스트 따로 넣어줘야 함
+        $fruits.appendChild($shallowClone); //마지막에 렌더링된 요소에 추가하기
+
+        //깊은 복사(자기 자신을 포함 모든 자손노드까지 복제): cloneNode(true)
+        //apple의 사본 생성
+        const $deepClone = $apple.cloneNode(true); //cloneNode(true) 하면 깊은 복사가 된다.
+        $fruits.appendChild($deepClone);
+        $deepClone.textContent = 'mango';
+
+
+        //ul을 깊은 복사
+        const $ulClone = $fruits.cloneNode(true); //true하면 자식 뿐만아니라 후손까지 모두 복제된다.
+        $fruits.appendChild($ulClone);
+    </script>
+</body>
+</html>

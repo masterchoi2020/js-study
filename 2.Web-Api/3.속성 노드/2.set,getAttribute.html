@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="name" value="Choi">
+
+    <script>
+
+        const $input = document.querySelector('input');
+
+        /*
+        input의 value 속성의 값(Choi)를 얻고 싶다면??
+
+        방법1: 원론적인 방법
+        const inputValue = $input.attributes.value.value;
+        console.log(inputValue);
+        */
+       
+       //방법2: getAttribute() 함수이용
+       const inputValue = $input.getAttribute('value');
+       console.log(inputValue);
+       console.log($input.getAttribute('id'));  //id의 name 얻기
+
+       //속성값 변경
+       //$input.getAttribute.value.value = 'Park';  //원론적 방법
+       $input.setAttribute('value', 'Park');
+
+
+       //새로운 속성 추가
+       $input.setAttribute('title','입력창');
+
+
+       //value 속성 삭제
+       $input.removeAttribute('value');
+
+       
+       //속성 존재여부 확인
+       console.log($input.hasAttribute('id'));
+
+
+    </script>
+
+</body>
+
+</html>

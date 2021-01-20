@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+    <!-- onclick은 사용하지 않는게 좋음(onclick()함수안에 또다른 함수가 들어가 실행되는 모양임) -->
+    <!-- onclick은 js코드를 HTML에 작성 => 코드들이 뒤죽박죽 섞이게 되는 모양 -->
+    <!-- onclick을 통해 브라우저에서 이벤트 핸들러 함수를 호출해 준다. -->
+    
+    <button id="btn" onclick="greeting()">클릭!</button>
+    <!-- <button id="btn" onclick="alert('메롱'); console('안녕');">클릭!</button> -->
+    
+    <script>
+        //이벤트 핸들러 함수: 이벤트 발생시 브라우저가 어떤 행동을 할지 정하는 함수
+        //이벤트 핸들러 함수 정의
+        function greeting(){
+            alert('안녕하세요.');
+        }
+
+    </script>
+</html>

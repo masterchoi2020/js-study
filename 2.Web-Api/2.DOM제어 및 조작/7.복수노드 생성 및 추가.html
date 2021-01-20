@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="fruits"></ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        //동적으로 과일 4개 삽입
+        //과일 이름 텍스트 배열
+        const fruitNames = ['Apple', 'Banana', 'Grape', 'Orange'];
+
+        /*
+        for(let f of fruitNames){
+            const $li = document.createElement('li'); //활성화 되지 않은 가상(virtual)의DOM
+            $li.textContent = f;
+            $fruits.appendChild($li);
+        }
+        */
+       
+        /*위 방법의 문제점
+         위 방법은 이미 렌더링 되어서 활성화된 DOM(ul이 이미 화면에 그려져 있음)에
+         반복해서 노드를 추가하게 되므로 메모리상 높은 비용이 발생한다.
+         활성화된(live) DOM을 변경 조작하는 것은 가능한 횟수를 줄이는 것이 성능상에 좋다.
+
+         해결 방법
+         ul과 li 사이에 가상태그(DOM)을 만들어 반복해서 만들어지는 li는 가상(virtual)DOM에 
+         계속 넣은 후 마지막 한번만 live DOM(ul)에 append해 주면 live DOM 사용을 최소화 할 수 있다.
+        */
+
+        //해결방법1: 가상(virtual)DOM 하나 생성 -> 실제 DOM 마지막 한번만 추가
+        /*
+        const $div = document.createElement('div');  // 아직 렌더링(그려지지 않음)되지 않은 가상(virtual) DOM인 div 생성
+        for(let f of fruitNames){
+            const $li = document.createElement('li'); //활성화 되지 않은(화면에 나타나지 않은) 가상(virtual)DOM
+            $li.textContent = f;
+            $div.appendChild($li);    //실제 live DOM에 넣지 않고 가상(virtual)DOM인 div에 먼저 넣는다.
+        }
+        $fruits.appendChild($div);   //최종적으로 live DOM에 넣는다. 단점:불필요하게 div 태그가 들어가는 문제발생
+        */
+
+        //해결방법2(중요!!): 진정한 virtual DOM을 생성 => DocumentFragment 사용
+        const $fragment = document.createDocumentFragment();
+
+        for (let f of fruitNames){
+            const $li = document.createElement('li');
+            $li.textContent = f;
+            $fragment.appendChild($li);
+        }
+        $fruits.appendChild($fragment);
+        
+    </script>
+
+</body>
+</html>

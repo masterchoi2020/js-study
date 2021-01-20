@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 텍스트 Hello World만 뽑고 싶을 때 -->
+    <div id="greeting">Hello <span>World!</span></div>
+
+    <script>
+        const $greeting = document.getElementById('greeting');
+        console.log($greeting.textContent); //마크업은 무시하고 텍스트만 모두 긁어온다.
+        
+        //textContent는 순수하게 텍스트만 얻어 올때 사용
+        // $greeting.textContent = '<span>안녕</spna>하세요.';  //<span>태그가 텍스트로 인식해 버림
+
+        //태그를 인식시키면서 텍스트 적용: innerHTML 사용
+        $greeting.innerHTML = '<span>안녕</span>하세요'; //태그 인식
+
+    </script>
+    
+</body>
+</html>

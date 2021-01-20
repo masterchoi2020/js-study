@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        const $li = document.createElement('li');
+        $li.textContent = 'Mango';
+
+        // $fruits.insertBefore($li, $fruits.lastElementChild); //첫번째 인자: 넣을 대상, 두번째 인자: 누구앞에 넣을지
+        const $banana = $fruits.querySelector('li:nth-child(2)');
+        $fruits.insertBefore($li, $banana); //$li (망고)를 $banana 앞에 삽입해라
+
+    </script>
+</body>
+</html>

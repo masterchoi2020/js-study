@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        /*
+        const children = $fruits.children;
+        const $apple = children[0];
+        const $banana = children[1];
+        const $grape = children[2];
+        */
+       //배열 디스트럭처링(유사 배열을 각각 꺼내서 새로운 배열에 담아준다.)
+       const [$apple, $banana, $grape] = [...$fruits.children];
+
+       const $mango = document.createElement('li');
+       $mango.textContent = "Mango";
+
+       $fruits.appendChild($mango); //appendChild()는 없는 요소는 마지막 요소로 추가된다.
+
+       $fruits.appendChild($banana); //appendChild()는 이미 렌더링 되어있는 요소에 적용하면 요소가 이동하게 된다.
+
+       $fruits.insertBefore($apple, $mango); //$apple의 위치를 $mango앞으로 이동
+
+       //grape를 맨 마지막 노드 바로 앞으로 옮겨보세요.
+       //Apple - Mango - Grape - Banana 가 되어야함
+       $fruits.insertBefore($grape, $banana);
+    //    $fruits.insertBefore($grape, $fruits.lastElementChild)
+
+
+
+    </script>
+</body>
+</html>
