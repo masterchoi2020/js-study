@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <em class="msg"></em>
+
+    <script>
+        
+        const $input = document.querySelector('input');
+        const $msg = document.querySelector('.msg');
+
+        //keyup 이벤트: 키보드의 키를 눌렀다가 땠을 때의 이벤트
+        $input.addEventListener('keyup',function(e){
+            //e.key 프로퍼티는 입력한 키값을 문자열로 반환합니다.
+            // console.log(e.key);  //msg에 입력한 키보드의 키값을 콘솔에 보여줌
+
+            if(e.key === 'Enter'){
+                $msg.textContent = e.target.value;  //msg에 입력한 값이 value에 텍스트로 들어감
+                e.target.value = ''; //엔터를 치고 나면 박스 안의 내용이 지워짐
+            } //키보드에서 Enter를 입력하면 이벤트가 발생
+        });
+
+    </script>
+</body>
+
+</html>

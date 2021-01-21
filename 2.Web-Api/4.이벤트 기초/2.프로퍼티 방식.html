@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">클릭!</button>
+
+    <script>
+
+        /*객체의 프로퍼디 동적 추가 방식
+        const temp = {
+            a: 1,
+            b: 2
+        };
+        temp.c = '3';
+        console.log(temp);
+        */
+        
+        //btn의 객체를 $btn으로 가져와서 btn프로퍼티에 중
+        //onclick의 속성을 추가하는 원리(객체의 프로퍼티 동적추가 방식)
+        const $btn = document.getElementById('btn');
+
+        $btn.onclick = function(){
+            alert('hello');
+        };
+        
+        /*두개의 이벤트를 걸어야 할 때 onclick 이 적용되지 않는 문제점 존재
+        $btn.onclick = function(){
+            alert('World');
+        };
+        */
+
+        //프로퍼티의 핸들러 제거
+        $btn.onclick = null;
+
+    </script>
+</body>
+
+</html>

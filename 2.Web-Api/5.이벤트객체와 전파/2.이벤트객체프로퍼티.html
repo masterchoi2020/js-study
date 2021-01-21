@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="checkbox">
+    <em class="msg"></em>
+
+    <script>
+        //이벤트 객체가 가지고 있는 key와 value를 알아 보자
+
+        const $checkbox = document.querySelector('[type=checkbox]'); //[]는 속성 선택자
+        const $msg = document.querySelector('.msg');
+
+        //input이 변경되었을 때의 이벤트는 change 이벤트(주의: cilick 아님)
+        $checkbox.addEventListener('change', function(e){
+
+            //실제 이벤트가 일어난 요소
+            console.log(e.target);  //target: 요소 노드가 들어옴
+
+            //이벤트 핸들러를 누구한테 부여했는가?
+            console.log(e.currentTarget);  //currentTarget: 요소 노드가 들어옴
+
+            console.log(e.target.checked);  //checked 프로퍼티: check여부를 true/false로 알려준다.
+
+            $msg.textContent = e.target.checked ? 'on' : 'off';            
+
+        });
+    </script>
+</body>
+
+</html>

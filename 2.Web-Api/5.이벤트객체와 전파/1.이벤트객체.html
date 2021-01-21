@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>아무 곳이나 클릭해주세요!</p>
+    <em class="message"></em>
+
+    <script>
+        const $msg = document.querySelector('.message');
+
+        //이벤트 핸들러에는 매개변수로 event (e로 적어도 됨) 객체만 사용가능하다.
+        document.addEventListener('click', function(event){
+            console.log(event);
+            console.log(event.type);  //type: 어떤 이벤트가 발생했나(예:click 이벤트)
+            console.log((event.target)); //target: 이벤트를 누가 발생 시켰는지 요소를 알려준다.
+
+            //clientX, clientY : client가 화면에 클릭했을 때의 좌표
+            $msg.textContent = `x: ${event.clientX}, y:${event.clientY}`;
+
+        });
+    </script>
+</body>
+
+</html>

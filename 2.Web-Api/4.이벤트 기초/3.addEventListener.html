@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <button id="btn">클릭!</button>
+
+    <script>
+        const $btn = document.querySelector('#btn');
+
+        //핸들러 함수 정의(기명함수)
+        //함수정의 방법1
+        function greeting(){
+            alert('hello!');    //greeting의 리턴값은 현재 undefined임
+        }
+
+        //함수정의 방법2
+        const world = function(){
+            alert('world');
+        };
+
+        //콜백함수로 인자 전달
+        $btn.addEventListener('click', greeting); //첫인자:이벤트 타입, 두번째 인자:핸들러 함수
+        $btn.addEventListener('click', world);
+        //이벤트를 여러개 추가 가능
+
+        /*익명함수로 처리
+        $btn.addEventListener('click',function(){
+            alert('World!');
+        });      
+        */
+
+        //이벤트 핸들러 제거 
+        $btn.removeEventListener('click', greeting); //단점: 익명함수는 제거안됨(기명함수만 제거 가능)
+
+    </script>
+
+</body>
+
+</html>
