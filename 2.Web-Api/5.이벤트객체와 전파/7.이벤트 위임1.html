@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #fruits {
+            /* 컨테이너(ul)에 flex걸면 내부 아이템(li)들이 수평 배치된다. */
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        #fruits .active {
+            color: red;
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">apple</em></div>
+
+    <br>
+
+    # 새로운 과일 추가:
+     <input type="text" class="text-box"> <button id="add">추가</button>
+
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const $msg = document.querySelector('.msg');
+
+        //이벤트 핸들러 함수
+        function activate(e) {
+            for(let $target of [...$fruits.children]) {
+
+                /*toggle의 두번째 인수의 논리값이 
+                  true로 판명나면 지정한 클래스를 추가하고
+                  false로 판명나면 지정한 클래스를 제거합니다.
+                */
+                $target.classList.toggle('active', $target === e.target);
+                $msg.textContent = e.target.id;
+            }
+        }
+
+        //단점: 성능상 최악(for 문이 많이 돌수록 성능이 안 좋아진다.)
+        /*현재 코드는 모든 li에게 이벤트 핸들러 active를 등록하고 있습니다.
+          이 방법은 각각의 li요소에 이벤트를 부여하기 때문에 성능 저하의 원인이 됩니다.
+          특히 동적으로 li가 추가 되는 경우에 기존의 요소들에게도 또 다시 핸들러를 
+          등록하게 되므로 성능과 유지보수에 좋지 않습니다.
+
+          => 버블리으로 위의 성능 해결 가능 (8.이벤트위임2.html에서 확인)
+            (상위 부모 요소(ul)에 이벤트를 등록고, li 들은 버블링을 통해 
+            부모에 있는 이벤트를 발생시키게 만듦. 결국 li각각엔 이벤트를 등록하지 않아도 된다.)
+        */
+        function addHandler() {
+            for (let $fruit of [...$fruits.children]) {
+                $fruit.addEventListener('click', activate);
+            }
+        }
+        //일단 미리 만들어진 3개의 li 들에게 이벤트 부여
+        addHandler();
+
+        //동적으로 과일 추가 
+        const $text = document.querySelector('.text-box');
+        const $addBtn = document.getElementById('add');
+
+
+        //click 이벤트 붙이기
+        $addBtn.addEventListener('click', function(e){
+            const $newLi = document.createElement('li');
+            $newLi.textContent = $text.value;
+            $newLi.setAttribute('id', $text.value);
+            
+            $fruits.appendChild($newLi);
+            $text.value = '';
+            addHandler();
+        });
+
+    </script>
+</body>
+</html>

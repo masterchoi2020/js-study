@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #fruits {
+            padding: 50px;
+            border: 2px solid red;
+        }
+
+        #fruits > li {
+            background: yellow;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li id="apple">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        /*
+        ul에 이벤트 걸기($fruits)
+        li에 클릭해도 이벤트가 발생 -> 이벤트가 하위요소인 li까지 전파됨(캡처링)
+        target과 currentTarget이 달라진다. 이벤트 핸들은 여전히 ul이 가지고 있음
+
+        결론: 이벤트는 전파되는 속성이 있으므로 주의해야한다.
+        */
+
+        /*
+        $fruits.addEventListener('click', function(e){
+            console.log('ul태그에 이벤트가 발생함!');
+            console.log('이벤트 실제 발생 타겟!', e.target);
+            console.log('이벤트 핸들러가 붙은 타겟!', e.currentTarget);
+
+            console.log('이벤트 전파 단계', e.eventPhase);
+        });
+        */
+
+        $fruits.addEventListener('click', function(e){
+            console.log('ul태그에 이벤트가 발생함!');
+        }, true);  //addEventListener(타입, 함수, true|false);  //true:캡처링 단계, false:버블링 단계로 전환
+
+        const $apple = $fruits.firstElementChild;
+
+        $apple.addEventListener('click',function(e){
+            console.log('apple에서 이벤트가 발생함!');
+            console.log('이벤트 실제 바생 타겟!', e.target);
+            console.log('이벤트 핸들러가 붙은 타겟!', e.currentTarget);
+
+            console.log('이벤트 전파 단계', e.eventPhase);  //apple클릭시 ul 전파(버블링)가 일어남
+
+            //이벤트 전파 막기
+            //apple 클릭시 apple에서만 이벤트 전파가 발생(즉, ul에서 전파한 이벤트는 차단)
+            // e.stopPropagation();
+        });
+        
+        /*<이벤트 전파>
+        ★1.버블링(중요!): 어떤 특정요소에 이벤트가 발생하면, 일단은 그 요소에서 이벤트가 일어난다.
+        -> 이후 부모요소로 올라가면서 이벤트가 있는지 확인하고 있으면 부모에 걸린 이벤트도 자동으로 작동시킨다.
+        -> 이런과정이 최상단의 조상요소 이벤트까지 반복 수행하는 것을 버블링 이라한다.
+
+        2.캡처링: 어떤 특정요소에 이벤트가 발생하면, 일단은 그 요소에서 이벤트가 일어난다.
+        -> 이후 버블링과 반대로 아래에 존재하는 자식요소의 이벤트를 자동으로 실행시킨다
+        -> 실제로는 잘 일어나지 않으며 addEventLitener에 3번째 인자값으로 true를 전달하면 캡처링이 일어나게된다.
+        */
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root {
+            /* position: absolute; */
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .parent {
+            /* position: absolute; */
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        .child {
+            /* position: absolute; */
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .target {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="root">
+        <div class="parent">
+            <div class="child">
+                <div class="target">Target</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //useCapture: 캡쳐링을 사용할 것인지의 유무, stop: 버블링을 중단시킬 것인지 여부
+        function bubblingAndCapturing(useCapture, stop){
+            
+            //body에 이벤트를 걸어둠
+            document.querySelector('body').addEventListener('click', function () {
+                alert("body");
+            }, useCapture)
+
+            //root에 이벤트 걸어둠
+            document.querySelector('.root').addEventListener('click', function () {
+                alert("root");
+            }, useCapture)
+
+            //parent에 이벤트 걸어둠
+            document.querySelector('.parent').addEventListener('click', function(){
+                alert('parent')
+            }, useCapture);
+
+            //child에 이벤트 걸어둠
+            document.querySelector('.child').addEventListener('click', function(){
+                alert('child');
+            }, useCapture);
+
+            //target에 이벤트 걸어둠, 버블링 중단 조건을 걸어둠
+            document.querySelector('.target').addEventListener('click', function(e){
+                alert("target");
+                if(stop) {
+                    e.stopPropagation();
+                }
+            }, useCapture);
+        }
+
+        //usecapture에 undefined가 들어간다 -> falsy한 값, 버블링되면 위로 올라가면서 부모 이벤트 다 발생시킴
+        // bubblingAndCapturing();  
+
+        // bubblingAndCapturing(true); //캡쳐링 발생 (잘 사용 안함 -> 설정을 따로 하지 않으면 발생 안하므로 신경쓰지 말자)
+        bubblingAndCapturing(false, true); //버블링 중단시킴(target 찍으면 버블링 발생 안함) => 버블링은 꼭 알고 있자.
+    </script>
+</body>
+
+</html>

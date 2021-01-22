@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #fruits {
+            /* 컨테이너(ul)에 flex걸면 내부 아이템(li)들이 수평 배치됨 */
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        #fruits .active {
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">apple</em></div>
+    <br>
+
+    #새로운 과일:
+    <input type="text" class="text-box"> <button id="add">추가</button>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const $msg = document.querySelector('.msg');
+
+        //이벤트 핸들러 함수
+        function activate(e) {
+            for (let $target of [...$fruits.children]) {
+                $target.classList.toggle('active', $target === e.target);
+                $msg.textContent = e.target.id;
+            }
+        }
+
+        /* 버블링 이용
+        부모요소 ul에 이벤트 핸들러 active를 단 1번만 등록해 놓음
+        그러면 발생한 위치에서 target이 발생한는데, li에 target이 발생했을 꼉우,
+        이벤트가 없으므로 버블링에 의해 li의 부모요소인 ul로 올라가 ul에 적용되어 있는
+        이벤트를 자동으로 발생시킨다. 이 이벤트가 li 요소들에 적용되게 된다.
+        단, ul 상위에 이벤트 존재시 더 이상 버블링으로 올라가지 못하게 ul위치에서 
+        버블링을 중단 시키는 코드가 필요하다.
+
+        7.이벤트위임1.html 파일과의 차이점: 7번 파일의 경우  li에 각각에 이벤트를 등록시켜 사용햇다.
+        새로운 li가 생길때 마다 for문을 통해 동일한 이벤트를 li에 만들어 주는 작업을 해야 했음
+        */
+
+        //부모 요소 ul에 이벤트 핸들러 activate를 단 한번만 등록해 놓음
+        $fruits.addEventListener('click', activate);
+
+        //동적으로 과일 추가
+        const $text = document.querySelector('.text-box');
+        const $addBtn = document.getElementById('add');
+
+        $addBtn.addEventListener('click', function (e) {
+            const $newLi = document.createElement('li');
+            $newLi.textContent = $text.value;
+            $newLi.setAttribute('id', $text.value);
+
+            $fruits.appendChild($newLi);
+            $text.value = '';
+        });
+    </script>
+</body>
+</html>

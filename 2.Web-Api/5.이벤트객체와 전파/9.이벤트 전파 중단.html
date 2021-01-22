@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .root {
+            width: 500px;
+            height: 500px;
+            background: red;
+        }
+        .parent {
+            width: 50%;
+            height: 50%;
+            background: orange;
+        }
+        .child {
+            width: 50%;
+            height: 50%;
+            background: skyblue;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <a href="https://www.naver.com">네이버로 이동</a>
+
+    <div class="root">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div>
+
+    <script>
+        
+        //버블링을 선택적으로 사용하고 싶을 땐, e.stopPropagation()을 이용해 버블링 중단 사용
+        document.querySelector('.root').addEventListener('click', function(e){
+            alert('root');
+        });
+
+        document.querySelector('.parent').addEventListener('click', function(e){
+            alert('parent');
+            e.stopPropagation();  //chlid의 경우 parent까지 버블링이 발생하고 parent는 자신의 이벤트만 발생시키고 끝남
+        });
+
+        document.querySelector('.child').addEventListener('click', function(e){
+            alert('child');
+            // e.stopPropagation();  // stopPropagation()을 설정하면 자기자신의 이벤트만 발생시키고 버블링을 하지 않음
+        });
+
+        const $anchor = document.querySelector('a');
+
+        $anchor.addEventListener('click', function(e){
+            if(!confirm('정말 이동할까요?')){
+                e.preventDefault();  //태그 고유 기능을 막음 (a href 태그 기능이 안 먹히게 됨)
+            }
+        });
+    </script>
+
+</body>
+</html>
