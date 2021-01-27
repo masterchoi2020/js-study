@@ -74,7 +74,7 @@ section.todo-template .content .todo-insert button:hover {
 section.todo-template .content .todo-list {
     min-height: 320px;
     max-height: 520px;  /*520px 넘어가면 스크롤 생성*/
-    overflow: hidden;
+    overflow: auto;  /*auto: 콘텐트 내용이 넘치면 화면에 스크롤바 자동생성*/
 }
 
 section.todo-template .content .todo-list .todo-list-item {
@@ -101,6 +101,31 @@ section.todo-template .content .todo-list .todo-list-item .checkbox .input {
 section.todo-template .content .todo-list .todo-list-item .checkbox .text {
     margin-left: 0.5rem;
     flex: 1;   /*flex-grow: 1  flex-shrink: 1  flex-basis:0  => flex:1 1 auto; */
+}
+
+section.todo-template .content .todo-list .todo-list-item .checkbox.checked .text {
+    color: #adb5bd;
+    text-decoration: line-through;
+}
+
+section.todo-template .content .todo-list .todo-list-item .checkbox .modify-input {
+    margin-left: 4rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 200px;
+    padding: 4px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+
+section.todo-template .content .todo-list .todo-list-item .modify {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: green;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
 section.todo-template .content .todo-list .todo-list-item .remove {
