@@ -5,8 +5,8 @@
 3.myName의 값을 admin에 복사해 보세요.
 4.admin의 값을 console 창에 띄어 보세요. "John" 이 출력 되어야 합니다.
 */
-var admin;
-var myName;
+let admin;
+let myName;
 myName = "John"
 admin = myName;
 console.log(admin);
@@ -22,21 +22,10 @@ console.log(admin);
   저장하는 변수를 만들어보세요.
   변수 이름은 어떻게 지어야 할까요?
 */
-var ourlivingPlanetName;
+let ourlivingPlanetName;
 
-var olpn;   //(x)
+let olpn;   //(x)
 
-var currentUserName;
-var loginUserName;
-
-
-
-
-
-
-
-
-
-
-
+let currentUserName;
+let loginUserName;
 
