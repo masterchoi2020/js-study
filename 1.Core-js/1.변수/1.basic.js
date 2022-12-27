@@ -1,6 +1,6 @@
 
 // 변수 선언
-var total;
+let total;
 // log + tab :로그 콘솔 단축키
 console.log(total);
 
@@ -8,15 +8,15 @@ console.log(total);
 total = 100;
 console.log(total);
 
-var age = 27;
+let age = 27;
 console.log(age);
 
 total = 50;
 console.log(total);
 
-var copyAge = age;
+let copyAge = age;
 console.log(copyAge);
 
-var x = 10;
+let x = 10;
 x = x + 3;
 console.log(x);
